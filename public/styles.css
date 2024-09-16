@@ -1,0 +1,258 @@
+/* Importando uma fonte moderna do Google */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Estilos globais */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.roteiro-logo {
+    width: 40px;
+    height: auto;
+}
+
+header {
+    background-color: #000;
+    text-align: center;
+    padding: 5px;
+}
+
+h1 {
+    font-size: 1rem;
+    color: #ffcc00;
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    background-color: #222;
+    list-style-type: none;
+    padding: 5px;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffcc00;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.fonte-custom {
+    color:#32cd32;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+/* Container principal da página */
+.roteiro-container {
+    padding: 5px;
+    text-align: center;
+}
+
+/* Estilo para a próxima atividade */
+.roteiro-notification {
+    width: fit-content; /* Ajusta a largura do bloco ao conteúdo */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    font-size: 0.75rem;
+    color: #ffcc00;
+    text-align: center;
+    border: 1px solid #ffcc00;
+    padding: 2px;
+    border-radius: 10px;
+    background-color: #222;
+}
+
+.roteiro-warning {
+    margin: 0px 0;
+    font-size: 0.75rem;
+    color: #ffcc00;
+    text-align: center;
+    padding: 00px;
+    border-radius: 00px;
+    background-color: #000;
+}
+
+/* Estilo da tabela de atividades */
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+table td {
+    padding: 5px;
+    border-bottom: 1px solid #444;
+}
+
+/* Ajustando as colunas de Data, Hora e Excluir para terem o mesmo tamanho */
+.primeira-linha td:nth-child(1) {
+    width: 33%;
+    text-align: right;
+}
+
+.primeira-linha td:nth-child(2) {
+    width: 33%;
+    text-align: center;
+}
+
+.primeira-linha td:nth-child(3) {
+    width: 33%;
+    text-align: left;
+}
+
+/* Estilo para o botão de excluir */
+button {
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 8px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+button:hover {
+    background-color: #fff;
+}
+
+/* Botão de excluir personalizado */
+.btn-excluir {
+    background-color: #ff4444;
+    color: #000;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 3px;
+}
+
+.btn-excluir:hover {
+    background-color: #ff0000;
+}
+
+/* Estilo para o link "Ver no Maps" */
+.roteiro-notification a {
+    color: #1e90ff; /* Azul claro para o link não clicado */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-weight: bold; /* Deixa o texto do link em negrito */
+}
+
+.roteiro-notification a:hover {
+    color: #ff4500; /* Laranja claro para o link quando o mouse está sobre ele */
+    text-decoration: underline; /* Adiciona sublinhado quando o mouse está sobre o link */
+}
+
+.roteiro-notification a:visited {
+    color: #32cd32; /* Verde claro para o link já clicado */
+}
+
+/* Estilo para todos os links dentro das linhas da tabela */
+#tabela-atividades a {
+    color: #1e90ff; /* Azul claro para o link não clicado */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-weight: bold; /* Deixa o texto do link em negrito */
+}
+
+#tabela-atividades a:hover {
+    color: #ff4500; /* Laranja claro para o link quando o mouse está sobre ele */
+    text-decoration: underline; /* Adiciona sublinhado quando o mouse está sobre o link */
+}
+
+#tabela-atividades a:visited {
+    color: #32cd32; /* Verde claro para o link já clicado */
+}
+
+/* Botão de adicionar */
+.btn-adicionar {
+    margin-top: 15px;
+}
+
+footer {
+    padding: 0px;
+    background-color: #000;
+    text-align: center;
+    color: #888;
+    font-size: 0.4rem;
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #222;
+    margin: 10% auto;
+    padding: 15px;
+    border: 1px solid #444;
+    width: 90%;
+    max-width: 350px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.modal h2 {
+    color: #ffcc00;
+}
+
+.modal label {
+    display: block;
+    margin-top: 5px;
+}
+
+.modal input {
+    width: 100%;
+    padding: 6px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+}
+
+.close {
+    color: #ffcc00;
+    float: right;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #fff;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    table td {
+        text-align: center;
+    }
+}

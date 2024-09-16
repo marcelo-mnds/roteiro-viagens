@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteiro de Viagens</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="roteiro-container">
+            <div class="roteiro-header-left">
+                <img src="logo.png" alt="Logo" class="roteiro-logo">
+                <h1>Roteiro de Viagens</h1>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="roteiro-container">
+            <ul class="roteiro-nav-menu">
+                <li><a href="index.html">Hoje</a></li>
+                <li><a href="amanha.html">Amanhã</a></li>
+                <li><a href="todos-os-dias.html"><strong class="fonte-custom">TODOS OS DIAS</strong></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="roteiro-container">
+            <div class="roteiro-notification">
+                <p>Próxima Atividade: -
+                </p>
+            </div>
+            <div class="roteiro-warning">
+                <p>Todas as atividades (geral):</p>
+            </div>
+
+            <section class="roteiro-details-section">
+
+                <div class="roteiro-details">
+
+                    <table>
+                        <tbody id="tabela-atividades">
+                            <!-- CONTEÚDO DINÂMICO SERÁ INSERIDO AQUI -->
+                        </tbody>
+                    </table>
+
+                    <div class="roteiro-add-button">
+                        <button class="btn-adicionar" id="btn-incluir">Incluir Atividade</button>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="roteiro-container">
+            <p>Desenvolvido por Marcelo Mendes</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar Atividade</h2>
+            <form id="atividade-form">
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required><br>
+                <label for="horario">Horário:</label>
+                <input type="time" id="horario" name="horario" required><br>
+                <label for="atividade">Atividade:</label>
+                <input type="text" id="atividade" name="atividade" required><br>
+                <label for="maps">Link do Maps:</label>
+                <input type="url" id="maps" name="maps"><br>
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+<script src="./scriptTodos.js"></script>
+
+</html>
