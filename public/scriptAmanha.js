@@ -20,6 +20,13 @@ function obterDataAmanha() {
     return `${ano}-${mes}-${dia}`;
 }
 
+function obterHorarioAtual() {
+    const agora = new Date();
+    const horas = String(agora.getHours()).padStart(2, '0'); // Adiciona zero à esquerda para as horas
+    const minutos = String(agora.getMinutes()).padStart(2, '0'); // Adiciona zero à esquerda para os minutos
+    return `${horas}:${minutos}`;
+}
+
 function limparAtividadesDaTela() {
     const tabelaToda = document.getElementById("tabela-atividades");
     tabelaToda.innerHTML = '';
@@ -100,6 +107,8 @@ function pegarAtividadesDeAmanha() {
                     celulaSeparadora.setAttribute('colspan', 3);
                     celulaSeparadora.style.height = "20px"; // Define a altura do espaço em branco
                     linhaSeparadora.appendChild(celulaSeparadora);
+                    linhaSeparadora.className=("linha-invisivel");
+                    celulaSeparadora.className=("celula-invisivel");
 
                     // Adicionando as linhas à tabela
                     tabelaAmanha.appendChild(linha1);
@@ -119,9 +128,10 @@ function atualizarProximaAtividade() {
         .then(response => response.json())
         .then(atividades => {
             const dataAtual = obterDataAtual();
+            const horaAtual = obterHorarioAtual();
 
             // Filtrar atividades que sejam para hoje ou no futuro
-            const atividadesFuturas = atividades.filter(item => item.data >= dataAtual);
+            const atividadesFuturas = atividades.filter(item => item.data > dataAtual || (item.data === dataAtual && item.hora > horaAtual));
 
             // Ordenar as atividades por data e, em seguida, por horário
             atividadesFuturas.sort((a, b) => {
