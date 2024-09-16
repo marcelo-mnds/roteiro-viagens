@@ -59,7 +59,7 @@ function pegarAtividadesGeral() {
                     const celula1Hora = document.createElement('td');
                     const celula1Excluir = document.createElement('td');
 
-                    celula1Data.innerText = `Data: ${item.data}`;
+                    celula1Data.innerText = `${item.data}`;
                     celula1Hora.innerText = `Hora: ${item.hora}`;
 
                     const botaoExcluir = document.createElement('button');
