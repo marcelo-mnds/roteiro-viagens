@@ -48,7 +48,7 @@ nav ul li a {
 }
 
 .fonte-custom {
-    color:#32cd32;
+    color: #32cd32;
     font-size: 1rem;
 }
 
@@ -121,11 +121,11 @@ button {
     background-color: #ffcc00;
     color: #000;
     border: none;
-    padding: 8px 8px;
+    padding: 5px 5px;
     cursor: pointer;
     border-radius: 4px;
     font-size: 0.9rem;
-    width: 100%;
+    width: 20%;
     box-sizing: border-box; /* Inclui padding e borda na largura total */
 }
 
@@ -137,7 +137,7 @@ button:hover {
 .btn-excluir {
     background-color: #ff4444;
     color: #000;
-    padding: 6px 12px;
+    padding: 5px 5px;
     font-size: 0.8rem;
     border-radius: 3px;
 }
@@ -181,7 +181,7 @@ button:hover {
 /* Botão de adicionar */
 .btn-adicionar {
     margin-top: 15px;
-    width: 100%;
+    width: 20%;
     padding: 10px; /* Ajusta o padding para botões em dispositivos móveis */
     box-sizing: border-box; /* Inclui padding na largura total */
 }
@@ -231,6 +231,7 @@ footer {
     width: 100%;
     padding: 6px;
     margin-top: 5px;
+    margin-bottom: 15px; /* Adiciona margem inferior para o último campo do formulário */
     border-radius: 4px;
     border: 1px solid #444;
     background-color: #333;
@@ -268,9 +269,20 @@ footer {
     }
 
     /* Ajusta a tabela para dispositivos móveis */
+    table {
+        border-collapse: separate; /* Adiciona espaçamento entre células */
+        border-spacing: 0; /* Remove espaçamento padrão entre células */
+    }
+
     table td {
         display: block; /* Faz com que cada célula se torne uma linha */
         width: 100%; /* Ajusta a largura para ocupar toda a largura disponível */
         box-sizing: border-box; /* Inclui padding e borda na largura total */
+        border-bottom: 1px solid #444; /* Adiciona borda inferior para separar as células */
+    }
+
+    /* Adiciona um espaçamento entre os blocos da tabela */
+    table td:not(:last-child) {
+        margin-bottom: 10px; /* Adiciona margem inferior entre as células */
     }
 }
