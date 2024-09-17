@@ -4,8 +4,8 @@
 /* Estilos globais */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #000;
-    color: #fff;
+    background-color: #121212; /* Fundo escuro moderno */
+    color: #E0E0E0; /* Texto claro */
     margin: 0;
     padding: 0;
 }
@@ -16,130 +16,136 @@ body {
 }
 
 header {
-    background-color: #000;
+    background-color: #1F1F1F; /* Fundo cinza escuro */
     text-align: center;
     padding: 5px;
 }
 
+.roteiro-nav-menu{
+    display: flex;
+    flex-direction: row;
+    gap: 5px; /* Espaçamento entre os itens */
+    font-size: 0.5rem;
+}
+
 h1 {
     font-size: 1rem;
-    color: #ffcc00;
+    color: #E0E0E0; /* Título claro */
     margin: 0;
 }
 
 nav ul {
     display: flex;
     justify-content: center;
-    background-color: #222;
+    background-color: #121212;
     list-style-type: none;
     padding: 5px;
     margin: 0;
+    font-size: 0.5rem;
 }
 
 nav ul li {
     margin: 0 10px;
+    font-size: 0.5rem;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #ffcc00;
+    color: #1DB954; /* Verde Spotify */
     font-weight: bold;
-    font-size: 0.75rem;
+    font-size: 0.5rem;
 }
 
 .fonte-custom {
-    color: #ff5100;
-    font-size: 1rem;
+    color: #B3B3B3; /* Cinza claro */
+    font-size: 0.5rem;
 }
 
 nav ul li a:hover {
-    color: #fff;
+    color: #1ED760; /* Verde mais claro ao passar o mouse */
 }
 
 /* Container principal da página */
 .roteiro-container {
     padding: 5px;
     text-align: center;
-    text-align: center; /* Centraliza o texto dentro das células */
-    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse a célula */
-    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .roteiro-notification {
-    width: fit-content; /* Ajusta a largura do bloco ao conteúdo */
-    max-width: 100%; /* Limita a largura máxima a 100% do container pai */
-    margin: 0 auto; /* Centraliza horizontalmente */
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
     font-size: 0.75rem;
-    color: #ff5100;
+    color: #1DB954; /* Verde Spotify */
     text-align: center;
-    border: 1px solid #ff5100;
+    border: 1px solid #1DB954;
     padding: 2px;
     border-radius: 10px;
-    background-color: #222;
-    word-wrap: break-word; /* Quebra palavras longas */
-    white-space: normal; /* Permite a quebra de linha normalmente */
+    background-color: #1D1D1D;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
-
 .roteiro-warning {
-    margin: 0px 0;
+    margin: 0;
     font-size: 0.75rem;
-    color: #ffcc00;
+    color: #1ED760; /* Verde claro */
     text-align: center;
-    padding: 00px;
-    border-radius: 00px;
-    background-color: #000;
-    word-wrap: break-word; /* Quebra palavras longas */
+    padding: 0;
+    border-radius: 0;
+    background-color: #121212;
+    word-wrap: break-word;
 }
 
 /* Estilo geral da tabela */
 table {
     width: 100%;
-    border-collapse: collapse; /* Remove espaçamento entre células */
-    table-layout: fixed; /* Faz com que a tabela use o layout fixo */
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
-/* Estilo das células */
 table td, table th {
-    padding: 0px;
-    border-bottom: 0.1px solid #ddd;
-    text-align: center; /* Centraliza o texto dentro das células */
-    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse a célula */
-    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    padding: 0;
+    border-bottom: 0.1px solid #333; /* Cinza escuro para separadores */
+    text-align: center;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .linha-invisivel,
 .celula-invisivel {
-    border: 0.0px solid #ddd;
+    border: 0;
 }
 
-/* Ajustando as colunas de Data, Hora e Excluir para terem o mesmo tamanho */
+/* Ajustando as colunas */
 .primeira-linha td:nth-child(1) {
     width: 33%;
     text-align: right;
-    padding: 0px;
+    padding: 0;
 }
 
 .primeira-linha td:nth-child(2) {
     width: 33%;
     text-align: center;
-    padding: 0px;
+    padding: 0;
 }
 
 .primeira-linha td:nth-child(3) {
     width: 33%;
     text-align: left;
-    padding: 0px;
+    padding: 0;
 }
 
 .primeira-linha {
-    display: flex; /* Ajuste para manter a estrutura de linha */
+    display: flex;
     flex-direction: row;
 }
 
 /* Estilo para o botão de incluir */
 button {
-    background-color: #ffcc00;
+    background-color: #1ED760; /* Verde Spotify */
     color: #000;
     border: none;
     padding: 5px 5px;
@@ -147,16 +153,16 @@ button {
     border-radius: 4px;
     font-size: 0.9rem;
     width: 20%;
-    box-sizing: border-box; /* Inclui padding e borda na largura total */
+    box-sizing: border-box;
 }
 
 button:hover {
-    background-color: #fff;
+    background-color: #1DB954; /* Verde mais escuro */
 }
 
 /* Botão de excluir personalizado */
 .btn-excluir {
-    background-color: #ff4444;
+    background-color: #FF6F61; /* Coral */
     margin-bottom: 5px;
     color: #000;
     padding: 4px;
@@ -166,54 +172,55 @@ button:hover {
 }
 
 .btn-excluir:hover {
-    background-color: #ff0000;
+    background-color: #FF3D00; /* Laranja mais intenso */
 }
 
 /* Estilo para o link "Ver no Maps" */
 .roteiro-notification a {
-    color: #71b2f3; /* Azul claro para o link não clicado */
-    text-decoration: none; /* Remove o sublinhado do link */
-    font-weight: bold; /* Deixa o texto do link em negrito */
+    color: #1DB954; /* Verde Spotify */
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .roteiro-notification a:hover {
-    color: #ff4500; /* Laranja claro para o link quando o mouse está sobre ele */
-    text-decoration: underline; /* Adiciona sublinhado quando o mouse está sobre o link */
+    color: #1ED760; /* Verde mais claro */
+    text-decoration: underline;
 }
 
 .roteiro-notification a:visited {
-    color: #e44dcb; /* Verde claro para o link já clicado */
+    color: #B3B3B3; /* Cinza claro */
 }
 
-/* Estilo para todos os links dentro das linhas da tabela */
+/* Links da tabela */
 #tabela-atividades a {
-    color: #71b2f3; /* Azul claro para o link não clicado */
-    text-decoration: none; /* Remove o sublinhado do link */
-    font-weight: bold; /* Deixa o texto do link em negrito */
+    color: #1DB954; /* Verde Spotify */
+    text-decoration: none;
+    font-weight: bold;
 }
 
 #tabela-atividades a:hover {
-    color: #ff4500; /* Laranja claro para o link quando o mouse está sobre ele */
-    text-decoration: underline; /* Adiciona sublinhado quando o mouse está sobre o link */
+    color: #1ED760; /* Verde mais claro */
+    text-decoration: underline;
 }
 
 #tabela-atividades a:visited {
-    color: #e44dcb; /* Verde claro para o link já clicado */
+    color: #B3B3B3; /* Cinza claro */
 }
 
 /* Botão de adicionar */
 .btn-adicionar {
     margin-top: 15px;
     width: 20%;
-    padding: 10px; /* Ajusta o padding para botões em dispositivos móveis */
-    box-sizing: border-box; /* Inclui padding na largura total */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
+/* Rodapé */
 footer {
-    padding: 0px;
-    background-color: #000;
+    padding: 0;
+    background-color: #1F1F1F;
     text-align: center;
-    color: #888;
+    color: #E0E0E0;
     font-size: 0.4rem;
 }
 
@@ -226,23 +233,23 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro */
 }
 
 .modal-content {
-    background-color: #222;
-    margin: 5% auto; /* Ajustado para melhor ajuste em dispositivos menores */
+    background-color: #1D1D1D;
+    margin: 5% auto;
     padding: 15px;
-    border: 1px solid #444;
+    border: 1px solid #333;
     width: 90%;
-    max-width: 90%; /* Ajuste o max-width para maior flexibilidade */
+    max-width: 90%;
     border-radius: 8px;
     text-align: left;
-    box-sizing: border-box; /* Inclui padding e border na largura total */
+    box-sizing: border-box;
 }
 
 .modal h2 {
-    color: #ffcc00;
+    color: #1DB954; /* Verde Spotify */
 }
 
 .modal label {
@@ -254,23 +261,23 @@ footer {
     width: 100%;
     padding: 6px;
     margin-top: 5px;
-    margin-bottom: 15px; /* Adiciona margem inferior para o último campo do formulário */
+    margin-bottom: 15px;
     border-radius: 4px;
-    border: 1px solid #444;
-    background-color: #333;
-    color: #fff;
-    box-sizing: border-box; /* Inclui padding e border na largura total */
+    border: 1px solid #333;
+    background-color: #222;
+    color: #E0E0E0;
+    box-sizing: border-box;
 }
 
 .close {
-    color: #ffcc00;
+    color: #1DB954; /* Verde Spotify */
     float: right;
     font-size: 1.2rem;
     cursor: pointer;
 }
 
 .close:hover {
-    color: #fff;
+    color: #E0E0E0;
 }
 
 /* Estilos para dispositivos móveis */
@@ -287,34 +294,32 @@ footer {
     .btn-adicionar,
     button {
         width: 100%;
-        padding: 10px; /* Ajusta o padding para botões em dispositivos móveis */
-        box-sizing: border-box; /* Inclui padding na largura total */
+        padding: 10px;
+        box-sizing: border-box;
     }
 
-    /* Ajusta a tabela para dispositivos móveis */
     table {
-        border-collapse: separate; /* Adiciona espaçamento entre células */
+        border-collapse: separate;
         width: 100%;
-        overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+        overflow-x: auto;
     }
 
     table td, table th {
-        display: block; /* Faz com que cada célula ocupe a largura total */
+        display: block;
         width: 100%;
-        box-sizing: border-box; /* Inclui padding e border na largura total */
+        box-sizing: border-box;
     }
 
     table tr {
-        display: flex; /* Faz com que as linhas se comportem como blocos flexíveis */
-        flex-direction: column; /* Alinha as células verticalmente */
-        margin-bottom: 10px; /* Adiciona espaço entre as linhas */
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
     }
 
-    /* Ajusta os botões de "Hoje", "Amanhã" e "Todos os Dias" */
     .botao-tempo {
         display: block;
-        width: 100%; /* Faz com que os botões ocupem toda a largura disponível */
-        margin: 5px 0; /* Adiciona espaço entre os botões */
-        box-sizing: border-box; /* Inclui padding e border na largura total */
+        width: 100%;
+        margin: 5px 0;
+        box-sizing: border-box;
     }
 }

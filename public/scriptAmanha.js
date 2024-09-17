@@ -87,7 +87,7 @@ function pegarAtividadesDeAmanha() {
                     const linha2 = document.createElement('tr');
                     const celula2Atividade = document.createElement('td');
                     celula2Atividade.setAttribute('colspan', 3); // Ocupa todas as colunas
-                    celula2Atividade.innerText = `Atividade: ${item.atividade}`;
+                    celula2Atividade.innerText = `${item.atividade}`;
                     linha2.appendChild(celula2Atividade);
 
                     // Criando a linha com o link do Google Maps
