@@ -48,31 +48,12 @@ nav ul li a {
 }
 
 .fonte-custom {
-    color: #32cd32;
+    color: #ff5100;
     font-size: 1rem;
 }
 
 nav ul li a:hover {
     color: #fff;
-}
-
-/* Estilo para os botões de "Hoje", "Amanhã" e "Todos os Dias" */
-.botao-tempo {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    border: 1px solid #ffcc00;
-    border-radius: 5px;
-    background-color: #222;
-    color: #ffcc00;
-    font-size: 0.75rem;
-    text-align: center;
-    text-decoration: none;
-}
-
-.botao-tempo:hover {
-    background-color: #ffcc00;
-    color: #000;
 }
 
 /* Container principal da página */
@@ -84,19 +65,21 @@ nav ul li a:hover {
     white-space: nowrap; /* Impede que o texto quebre em várias linhas */
 }
 
-/* Estilo para a próxima atividade */
 .roteiro-notification {
     width: fit-content; /* Ajusta a largura do bloco ao conteúdo */
+    max-width: 100%; /* Limita a largura máxima a 100% do container pai */
     margin: 0 auto; /* Centraliza horizontalmente */
     font-size: 0.75rem;
-    color: #ffcc00;
+    color: #ff5100;
     text-align: center;
-    border: 1px solid #ffcc00;
+    border: 1px solid #ff5100;
     padding: 2px;
     border-radius: 10px;
     background-color: #222;
     word-wrap: break-word; /* Quebra palavras longas */
+    white-space: normal; /* Permite a quebra de linha normalmente */
 }
+
 
 .roteiro-warning {
     margin: 0px 0;
@@ -179,7 +162,7 @@ button:hover {
     padding: 4px;
     font-size: 0.8rem;
     border-radius: 4px;
-    width: 50%;
+    width: 65%;
 }
 
 .btn-excluir:hover {
@@ -188,7 +171,7 @@ button:hover {
 
 /* Estilo para o link "Ver no Maps" */
 .roteiro-notification a {
-    color: #1e90ff; /* Azul claro para o link não clicado */
+    color: #71b2f3; /* Azul claro para o link não clicado */
     text-decoration: none; /* Remove o sublinhado do link */
     font-weight: bold; /* Deixa o texto do link em negrito */
 }
@@ -199,12 +182,12 @@ button:hover {
 }
 
 .roteiro-notification a:visited {
-    color: #32cd32; /* Verde claro para o link já clicado */
+    color: #e44dcb; /* Verde claro para o link já clicado */
 }
 
 /* Estilo para todos os links dentro das linhas da tabela */
 #tabela-atividades a {
-    color: #1e90ff; /* Azul claro para o link não clicado */
+    color: #71b2f3; /* Azul claro para o link não clicado */
     text-decoration: none; /* Remove o sublinhado do link */
     font-weight: bold; /* Deixa o texto do link em negrito */
 }
@@ -215,7 +198,7 @@ button:hover {
 }
 
 #tabela-atividades a:visited {
-    color: #32cd32; /* Verde claro para o link já clicado */
+    color: #e44dcb; /* Verde claro para o link já clicado */
 }
 
 /* Botão de adicionar */
