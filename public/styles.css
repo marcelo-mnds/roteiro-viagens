@@ -24,8 +24,8 @@ header {
 .roteiro-nav-menu{
     display: flex;
     flex-direction: row;
-    gap: 5px; /* Espaçamento entre os itens */
-    font-size: 0.5rem;
+    gap: 30px; /* Espaçamento entre os itens */
+    font-size: 1rem;
 }
 
 h1 {
@@ -41,24 +41,24 @@ nav ul {
     list-style-type: none;
     padding: 5px;
     margin: 0;
-    font-size: 0.5rem;
+    font-size: 1rem;
 }
 
 nav ul li {
     margin: 0 10px;
-    font-size: 0.5rem;
+    font-size: 1rem;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #1DB954; /* Verde Spotify */
+    color: #B3B3B3; /* Verde Spotify */
     font-weight: bold;
-    font-size: 0.5rem;
+    font-size: 1rem;
 }
 
 .fonte-custom {
-    color: #B3B3B3; /* Cinza claro */
-    font-size: 0.5rem;
+    color: #1DB954; /* Cinza claro */
+    font-size: 1rem;
 }
 
 nav ul li a:hover {
