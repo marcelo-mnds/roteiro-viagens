@@ -1,0 +1,27 @@
+<%- include('partials/template-inicio-header') %>
+    <nav>
+        <div class="roteiro-container">
+            <ul class="roteiro-nav-menu">
+                <li><a href="/">hoje</a></li>
+                <li><a href="amanha"><strong class="fonte-custom">AMANHÃ</strong></a></li>
+                <li><a href="todos-os-dias">todos os dias</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="roteiro-container">
+            <div class="roteiro-notification">
+                <p>Próxima Atividade: -
+                </p>
+            </div>
+            <div class="roteiro-warning">
+                <p><br>Todas as atividades de amanhã:</p>
+            </div>
+            <%- include('partials/roteiro-details-section') %>
+        </div>
+    </main>
+    <%- include('partials/footer') %>
+        <%- include('partials/modais') %>
+            </body>
+            <script type="module" src="./scriptAmanha.js"></script>
+            </html>

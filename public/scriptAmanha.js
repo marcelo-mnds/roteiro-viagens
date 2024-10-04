@@ -1,37 +1,7 @@
+import { obterDataAmanha, limparAtividadesDaTela, atualizarProximaAtividade, excluirAtividadeEditando } from './utils.js';
+
 pegarAtividadesDeAmanha();
 atualizarProximaAtividade();
-
-// Função para obter a data atual no formato "YYYY-MM-DD"
-function obterDataAtual() {
-    const hoje = new Date();
-    const ano = hoje.getFullYear();
-    const mes = String(hoje.getMonth() + 1).padStart(2, '0'); // Adiciona zero à esquerda para o mês
-    const dia = String(hoje.getDate()).padStart(2, '0'); // Adiciona zero à esquerda para o dia
-    return `${ano}-${mes}-${dia}`;
-}
-
-// Função para obter a data de amanhã no formato "YYYY-MM-DD"
-function obterDataAmanha() {
-    const amanha = new Date();
-    amanha.setDate(amanha.getDate() + 1); // Adiciona um dia à data atual
-    const ano = amanha.getFullYear();
-    const mes = String(amanha.getMonth() + 1).padStart(2, '0'); // Adiciona zero à esquerda para o mês
-    const dia = String(amanha.getDate()).padStart(2, '0'); // Adiciona zero à esquerda para o dia
-    return `${ano}-${mes}-${dia}`;
-}
-
-function obterHorarioAtual() {
-    const agora = new Date();
-    const horas = String(agora.getHours()).padStart(2, '0'); // Adiciona zero à esquerda para as horas
-    const minutos = String(agora.getMinutes()).padStart(2, '0'); // Adiciona zero à esquerda para os minutos
-    return `${horas}:${minutos}`;
-}
-
-function limparAtividadesDaTela() {
-    const tabelaToda = document.getElementById("tabela-atividades");
-    tabelaToda.innerHTML = '';
-}
-
 
 function pegarAtividadesDeAmanha() {
     limparAtividadesDaTela();
@@ -73,6 +43,12 @@ function pegarAtividadesDeAmanha() {
                     celula1Data.innerText = `${item.data}`;
                     celula1Hora.innerText = `Hora: ${item.hora}`;
 
+                    const botaoEditar = document.createElement('button');
+                    botaoEditar.innerText = "Editar";
+                    botaoEditar.className = "btn-editar"; // Classe para o estilo do botão
+                    botaoEditar.addEventListener('click', () => editarAtividade(item.id)); // Passa o id da atividade
+                    celula1Excluir.appendChild(botaoEditar);
+                    
                     const botaoExcluir = document.createElement('button');
                     botaoExcluir.innerText = "Excluir";
                     botaoExcluir.className = "btn-excluir"; // Classe para o estilo do botão
@@ -123,46 +99,6 @@ function pegarAtividadesDeAmanha() {
         });
 }
 
-function atualizarProximaAtividade() {
-    fetch("./atividades.json")
-        .then(response => response.json())
-        .then(atividades => {
-            const dataAtual = obterDataAtual();
-            const horaAtual = obterHorarioAtual();
-
-            // Filtrar atividades que sejam para hoje ou no futuro
-            const atividadesFuturas = atividades.filter(item => item.data > dataAtual || (item.data === dataAtual && item.hora > horaAtual));
-
-            // Ordenar as atividades por data e, em seguida, por horário
-            atividadesFuturas.sort((a, b) => {
-                const dataA = new Date(a.data).getTime();
-                const dataB = new Date(b.data).getTime();
-
-                if (dataA === dataB) {
-                    // Se as datas forem iguais, ordena por horário
-                    const horaA = new Date(`1970-01-01T${a.hora}Z`).getTime();
-                    const horaB = new Date(`1970-01-01T${b.hora}Z`).getTime();
-                    return horaA - horaB;
-                }
-                return dataA - dataB;
-            });
-
-            // Verificar se há atividades futuras
-            if (atividadesFuturas.length === 0) {
-                document.querySelector('.roteiro-notification p').innerText = "Próxima Atividade: Nenhuma atividade futura.";
-            } else {
-                const proximaAtividade = atividadesFuturas[0];
-                const link = `<a href="${proximaAtividade.linkMaps}" target="_blank">Ver no Maps</a>`;
-                document.querySelector('.roteiro-notification p').innerHTML = `Próxima Atividade: <strong>${proximaAtividade.atividade} 
-                às ${proximaAtividade.hora} em ${proximaAtividade.data} - ${link}</strong>`;
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao carregar o JSON:", error);
-            document.querySelector('.roteiro-notification p').innerText = "Erro ao carregar a próxima atividade.";
-        });
-}
-
 function excluirAtividade(id) {
     // Exibir a pergunta de confirmação
     const confirmacao = confirm("Tem certeza que deseja excluir esta atividade?");
@@ -200,6 +136,96 @@ function excluirAtividade(id) {
         // Caso o usuário clique em "Cancelar", nenhuma ação será realizada
         alert("Exclusão NÃO efetuada.");
     }
+}
+
+function editarAtividade(id) {
+    // Pega os dados do modal no HTML
+    const modalEdicao = document.getElementById('modal-edicao');
+    const closeModalEdicaoButton = document.querySelector('.close-edicao');
+    const dataEdicaoInput = document.getElementById('data-edicao');
+    const horarioEdicaoInput = document.getElementById('horario-edicao');
+    const atividadeEdicaoInput = document.getElementById('atividade-edicao');
+    const mapsEdicaoInput = document.getElementById('maps-edicao');
+    const atividadeFormEdicao = document.getElementById('atividade-form-edicao');
+
+    // Abre o modal
+    modalEdicao.style.display = 'block';
+
+    // Remove event listeners antigos para evitar duplicações
+    closeModalEdicaoButton.removeEventListener('click', closeModal);
+    window.removeEventListener('click', closeOnOutsideClick);
+    atividadeFormEdicao.removeEventListener('submit', submitForm);
+
+    // Função para fechar o modal
+    function closeModal() {
+        modalEdicao.style.display = 'none';
+    }
+
+    // Função para fechar o modal se clicar fora dele
+    function closeOnOutsideClick(event) {
+        if (event.target == modalEdicao) {
+            modalEdicao.style.display = 'none';
+        }
+    }
+
+    // Adiciona os event listeners corretamente
+    closeModalEdicaoButton.addEventListener('click', closeModal);
+    window.addEventListener('click', closeOnOutsideClick);
+
+    // Carrega o arquivo atividades.json e encontra a atividade pelo ID
+    fetch('atividades.json')
+        .then(response => response.json())
+        .then(atividades => {
+            const atividade = atividades.find(item => item.id === id);
+
+            if (atividade) {
+                dataEdicaoInput.value = atividade.data;
+                horarioEdicaoInput.value = atividade.hora;
+                atividadeEdicaoInput.value = atividade.atividade;
+                mapsEdicaoInput.value = atividade.linkMaps;
+            } else {
+                console.error('Atividade não encontrada!');
+            }
+        })
+        .catch(error => console.error('Erro ao carregar atividades:', error));
+
+    // Função para enviar o formulário de edição
+    function submitForm(event) {
+        event.preventDefault();
+
+        const idAleatorio = Math.floor(Math.random() * (10000000000 - 1 + 1)) + 1;
+
+        const formData = new FormData(atividadeFormEdicao);
+        const data = {
+            id: idAleatorio,
+            data: formData.get('data'),
+            horario: formData.get('horario'),
+            atividade: formData.get('atividade'),
+            maps: formData.get('maps')
+        };
+
+        fetch('/api/atividades-edicao', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(result => {
+                alert(result.message);
+                modalEdicao.style.display = 'none';
+                excluirAtividadeEditando(id);
+                pegarAtividadesDeAmanha();
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao editar a atividade.');
+            });
+    }
+
+    // Adiciona o event listener para o envio do formulário
+    atividadeFormEdicao.addEventListener('submit', submitForm);
 }
 
 // Pega dados do modal no HTML
