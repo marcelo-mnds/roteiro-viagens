@@ -57,7 +57,8 @@ function atualizarProximaAtividade() {
 
             // Verificar se há atividades futuras
             if (atividadesFuturas.length === 0) {
-                document.querySelector('.roteiro-notification p').innerText = "Próxima Atividade: Nenhuma atividade futura.";
+                document.querySelector('.roteiro-notification p').innerHTML = 
+                `Próxima Atividade: <strong><span style="color: red;">Nenhuma atividade futura programada.</span></strong>`;
             } else {
                 const proximaAtividade = atividadesFuturas[0];
                 const link = `<a href="${proximaAtividade.linkMaps}" target="_blank">Ver no Maps</a>`;

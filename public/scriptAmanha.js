@@ -48,7 +48,7 @@ function pegarAtividadesDeAmanha() {
                     botaoEditar.className = "btn-editar"; // Classe para o estilo do botão
                     botaoEditar.addEventListener('click', () => editarAtividade(item.id)); // Passa o id da atividade
                     celula1Excluir.appendChild(botaoEditar);
-                    
+
                     const botaoExcluir = document.createElement('button');
                     botaoExcluir.innerText = "Excluir";
                     botaoExcluir.className = "btn-excluir"; // Classe para o estilo do botão
@@ -83,8 +83,8 @@ function pegarAtividadesDeAmanha() {
                     celulaSeparadora.setAttribute('colspan', 3);
                     celulaSeparadora.style.height = "20px"; // Define a altura do espaço em branco
                     linhaSeparadora.appendChild(celulaSeparadora);
-                    linhaSeparadora.className=("linha-invisivel");
-                    celulaSeparadora.className=("celula-invisivel");
+                    linhaSeparadora.className = ("linha-invisivel");
+                    celulaSeparadora.className = ("celula-invisivel");
 
                     // Adicionando as linhas à tabela
                     tabelaAmanha.appendChild(linha1);
@@ -216,7 +216,10 @@ function editarAtividade(id) {
                 alert(result.message);
                 modalEdicao.style.display = 'none';
                 excluirAtividadeEditando(id);
-                pegarAtividadesDeAmanha();
+                // Força o recarregamento da página após atualizar as atividades
+                setTimeout(() => {
+                    window.location.reload();  // Recarrega a página
+                }, 100);
             })
             .catch(error => {
                 console.error('Erro:', error);

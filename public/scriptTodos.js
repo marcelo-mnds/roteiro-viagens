@@ -10,24 +10,24 @@ function pegarAtividadesGeral() {
         .then(response => response.json())
         .then(atividades => {
             const tabelaGeral = document.getElementById("tabela-atividades");
-            
-             // Filtrar atividades que têm data
-             const atividadesGeral = atividades.filter(item => item.data && item.hora);
 
-             // Ordenar as atividades por data e, em seguida, por horário
-             atividadesGeral.sort((a, b) => {
-                 const dataA = new Date(a.data).getTime();
-                 const dataB = new Date(b.data).getTime();
- 
-                 // Se as datas forem iguais, ordena por horário
-                 if (dataA === dataB) {
-                     const horaA = new Date(`1970-01-01T${a.hora}Z`).getTime();
-                     const horaB = new Date(`1970-01-01T${b.hora}Z`).getTime();
-                     return horaA - horaB;
-                 }
-                 return dataA - dataB;
-             });
- 
+            // Filtrar atividades que têm data
+            const atividadesGeral = atividades.filter(item => item.data && item.hora);
+
+            // Ordenar as atividades por data e, em seguida, por horário
+            atividadesGeral.sort((a, b) => {
+                const dataA = new Date(a.data).getTime();
+                const dataB = new Date(b.data).getTime();
+
+                // Se as datas forem iguais, ordena por horário
+                if (dataA === dataB) {
+                    const horaA = new Date(`1970-01-01T${a.hora}Z`).getTime();
+                    const horaB = new Date(`1970-01-01T${b.hora}Z`).getTime();
+                    return horaA - horaB;
+                }
+                return dataA - dataB;
+            });
+
             // Verifica se há atividades
             if (atividadesGeral.length === 0) {
                 const linhaNenhumaAtividade = document.createElement('tr');
@@ -87,10 +87,10 @@ function pegarAtividadesGeral() {
                     const linhaSeparadora = document.createElement('tr');
                     const celulaSeparadora = document.createElement('td');
                     celulaSeparadora.setAttribute('colspan', 3);
-                    celulaSeparadora.style.height = "20px"; // Define a altura do espaço em branco
+                    celulaSeparadora.style.height = "10px"; // Define a altura do espaço em branco
                     linhaSeparadora.appendChild(celulaSeparadora);
-                    linhaSeparadora.className=("linha-invisivel");
-                    celulaSeparadora.className=("celula-invisivel");
+                    linhaSeparadora.className = ("linha-invisivel");
+                    celulaSeparadora.className = ("celula-invisivel");
 
                     // Adicionando as linhas à tabela
                     tabelaGeral.appendChild(linha1);
@@ -222,7 +222,10 @@ function editarAtividade(id) {
                 alert(result.message);
                 modalEdicao.style.display = 'none';
                 excluirAtividadeEditando(id);
-                pegarAtividadesGeral();
+                // Força o recarregamento da página após atualizar as atividades
+                setTimeout(() => {
+                    window.location.reload();  // Recarrega a página
+                }, 100);
             })
             .catch(error => {
                 console.error('Erro:', error);

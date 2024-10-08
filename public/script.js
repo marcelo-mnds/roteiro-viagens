@@ -216,7 +216,10 @@ function editarAtividade(id) {
                 alert(result.message);
                 closeModal();
                 excluirAtividadeEditando(id);
-                pegarAtividadesDeHoje();
+                // Força o recarregamento da página após atualizar as atividades
+                setTimeout(() => {
+                    window.location.reload();  // Recarrega a página
+                }, 100);
             })
             .catch(error => {
                 console.error('Erro:', error);

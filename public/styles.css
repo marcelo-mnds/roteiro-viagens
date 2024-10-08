@@ -67,7 +67,7 @@ nav ul li a:hover {
 
 /* Container principal da página */
 .roteiro-container {
-    padding: 5px;
+    padding: 0px;
     text-align: center;
     overflow: hidden;
     white-space: nowrap;
@@ -77,6 +77,8 @@ nav ul li a:hover {
     width: fit-content;
     max-width: 100%;
     margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 0.75rem;
     color: #1DB954; /* Verde Spotify */
     text-align: center;
@@ -108,7 +110,7 @@ table {
 
 table td, table th {
     padding: 0;
-    border-bottom: 0.1px solid #333; /* Cinza escuro para separadores */
+    border-bottom: 0.1px solid #1DB954; /* Cinza escuro para separadores */
     text-align: center;
     word-wrap: break-word;
     white-space: normal;
@@ -228,8 +230,8 @@ button:hover {
 
 /* Botão de adicionar */
 .btn-adicionar {
-    margin-top: 15px;
-    width: 20%;
+    margin: 20px auto;
+    width: 30%;
     padding: 10px;
     box-sizing: border-box;
 }
