@@ -24,7 +24,7 @@ header {
 .roteiro-nav-menu{
     display: flex;
     flex-direction: row;
-    gap: 30px; /* Espaçamento entre os itens */
+    gap: 20px; /* Espaçamento entre os itens */
     font-size: 1rem;
 }
 

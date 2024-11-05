@@ -62,8 +62,8 @@ function atualizarProximaAtividade() {
             } else {
                 const proximaAtividade = atividadesFuturas[0];
                 const link = `<a href="${proximaAtividade.linkMaps}" target="_blank">Ver no Maps</a>`;
-                document.querySelector('.roteiro-notification p').innerHTML = `Próxima Atividade: <strong>${proximaAtividade.atividade} 
-                às ${proximaAtividade.hora} em ${proximaAtividade.data} - ${link}</strong>`;
+                document.querySelector('.roteiro-notification p').innerHTML = `Próxima: Às ${proximaAtividade.hora} de ${proximaAtividade.data} - 
+                <strong>${proximaAtividade.atividade}</strong> - ${link}`;
             }
         })
         .catch(error => {
