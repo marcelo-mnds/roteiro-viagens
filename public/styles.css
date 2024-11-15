@@ -355,3 +355,16 @@ footer {
         box-sizing: border-box;
     }
 }
+
+@keyframes piscar {
+    0%, 100% {
+        color: #1DB954
+    }
+    50% {
+        color: yellow;
+    }
+}
+
+.piscando {
+    animation: piscar 2s infinite;
+}
