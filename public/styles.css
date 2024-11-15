@@ -143,7 +143,6 @@ table td, table th {
 }
 
 .primeira-linha {
-    display: flex;
     flex-direction: row;
 }
 
